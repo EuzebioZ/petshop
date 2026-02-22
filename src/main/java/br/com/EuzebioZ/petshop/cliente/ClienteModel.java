@@ -14,9 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClienteModel{
+    @Column(unique = true)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String cpf;
     private String nome;
     private String telefone;

@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Table(name="consulta")
 public class ConsultaModel{
+    @Column(unique = true)
     private LocalDateTime data_hora;
     private String descricao;
     @Id

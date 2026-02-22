@@ -17,6 +17,7 @@ import java.util.List;
 public class PetModel{
     private String nome;
     private int idade;
+    @Column(unique = true)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

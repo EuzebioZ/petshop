@@ -11,7 +11,7 @@ import java.util.List;
 public class ClienteController{
     
     @GetMapping("/all")
-    public List<ClienteModel> getAll(){
-        return null;
+    public String All(){
+        return "Clientes";
     }
 }

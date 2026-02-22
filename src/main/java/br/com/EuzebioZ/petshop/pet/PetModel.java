@@ -1,10 +1,13 @@
 package br.com.EuzebioZ.petshop.pet;
 
 import br.com.EuzebioZ.petshop.cliente.ClienteModel;
+import br.com.EuzebioZ.petshop.consulta.ConsultaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -20,4 +23,6 @@ public class PetModel{
     @ManyToOne
     @JoinColumn(name = "dono")
     private ClienteModel dono;
+    @OneToMany(mappedBy = "pet")
+    private List<ConsultaModel> consultas;
 }

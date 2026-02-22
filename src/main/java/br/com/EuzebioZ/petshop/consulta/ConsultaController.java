@@ -1,17 +1,14 @@
-package br.com.EuzebioZ.petshop.pet;
+package br.com.EuzebioZ.petshop.consulta;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-@RequestMapping("pet")
 @RestController
-public class PetController{
-
-    @GetMapping("/all")
+@RequestMapping("consulta")
+public class ConsultaController{
+    @GetMapping("all")
     public String all(){
-        return "Pets";
+        return "Consultas";
     }
 }

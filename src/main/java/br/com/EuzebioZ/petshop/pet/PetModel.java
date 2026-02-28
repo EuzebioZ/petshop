@@ -2,6 +2,7 @@ package br.com.EuzebioZ.petshop.pet;
 
 import br.com.EuzebioZ.petshop.cliente.ClienteModel;
 import br.com.EuzebioZ.petshop.consulta.ConsultaModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class PetModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "dono")
     private ClienteModel dono;

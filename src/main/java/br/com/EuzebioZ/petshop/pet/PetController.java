@@ -9,9 +9,14 @@ import java.util.List;
 @RequestMapping("pet")
 @RestController
 public class PetController{
+    private PetService service;
+
+    public PetController(PetService service){
+        this.service = service;
+    }
 
     @GetMapping("/all")
-    public String all(){
-        return "Pets";
+    public List<PetModel> all(){
+        return service.listar();
     }
 }

@@ -1,6 +1,7 @@
 package br.com.EuzebioZ.petshop.consulta;
 
 import br.com.EuzebioZ.petshop.pet.PetModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class ConsultaModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "pet")
     private PetModel pet;

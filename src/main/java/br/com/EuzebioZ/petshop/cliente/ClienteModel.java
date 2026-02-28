@@ -1,6 +1,7 @@
 package br.com.EuzebioZ.petshop.cliente;
 
 import br.com.EuzebioZ.petshop.pet.PetModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class ClienteModel{
     private String cpf;
     private String nome;
     private String telefone;
+    @JsonIgnore
     @OneToMany(mappedBy = "dono")
     private List<PetModel> pets;
 }

@@ -9,9 +9,12 @@ import java.util.List;
 @RestController
 @RequestMapping("cliente")
 public class ClienteController{
+    private ClienteService service;
+
+    public ClienteController(ClienteService service){ this.service = service;}
     
     @GetMapping("/all")
-    public String All(){
-        return "Clientes";
+    public List<ClienteModel> all(){
+        return service.listar();
     }
 }

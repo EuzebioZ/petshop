@@ -15,4 +15,5 @@ public class ConsultaService{
     public List<ConsultaModel> listar(){
        return repositorio.findAll();
     }
+
 }

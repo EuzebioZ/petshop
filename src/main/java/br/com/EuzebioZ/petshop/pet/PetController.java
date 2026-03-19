@@ -1,8 +1,6 @@
 package br.com.EuzebioZ.petshop.pet;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,25 @@ public class PetController{
     @GetMapping("/all")
     public List<PetModel> all(){
         return service.listar();
+    }
+
+    @GetMapping("/get/{id}")
+    public PetModel get(@PathVariable Long id){
+        return service.buscarPorId(id);
+    }
+
+    @PostMapping("/new")
+    public PetModel create(@RequestBody PetModel novo){
+        return service.salvar(novo);
+    }
+
+    @PutMapping("/update/{id}")
+    public PetModel update(@PathVariable Long id, @RequestBody PetModel novo){
+        return service.alterar(id,novo);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public boolean delete(@PathVariable Long id){
+        return service.deletar(id);
     }
 }

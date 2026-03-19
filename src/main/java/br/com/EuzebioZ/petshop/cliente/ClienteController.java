@@ -1,8 +1,6 @@
 package br.com.EuzebioZ.petshop.cliente;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,5 +14,21 @@ public class ClienteController{
     @GetMapping("/all")
     public List<ClienteModel> all(){
         return service.listar();
+    }
+
+    @GetMapping("/get/{id}")
+    public ClienteModel get(@PathVariable Long id){ return service.buscarPorId(id); }
+
+    @PostMapping("/new")
+    public ClienteModel criar(@RequestBody ClienteModel cliente){ return service.salvar(cliente); }
+
+    @PutMapping("/update/{id}")
+    public ClienteModel update(@PathVariable Long id, @RequestBody ClienteModel novoCliente){
+        return service.alterar(id,novoCliente);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public boolean remover(@PathVariable Long id){
+        return service.deletar(id);
     }
 }
